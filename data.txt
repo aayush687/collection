@@ -1,0 +1,36 @@
+//Creating object type
+
+CREATE OR REPLACE TYPE employee_type AS OBJECT (
+  emp_id        NUMBER(15),
+  emp_name      VARCHAR2(20),
+  salary          NUMBER(10)
+);
+/
+SHOW ERRORS
+
+//Creating Object Table
+CREATE TABLE employee_table OF employee_type;
+
+//Object type as column definitions
+  CREATE TABLE department(
+  dept_id      NUMBER(15),
+  dept_name    VARCHAR2(20),
+  manager      employee_type
+);
+
+//Use in relational table definition
+   CREATE TABLE dept_employee(
+   employee_id    NUMBER,
+   employee_name  VARCHAR2(20),
+   emp_ref        REF employee_type SCOPE IS employee_table
+);
+//Simple varray
+CREATE TYPE subject_type AS VARRAY(6) OF VARCHAR2(30);
+
+//Use in table
+   CREATE TABLE school_student(
+   id         NUMBER(),
+   name       VARCHAR2(20),
+   subjects   subject_type
+);
+/
