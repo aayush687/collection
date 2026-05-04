@@ -14,7 +14,7 @@ PRIMARY KEY (phone_number);
 
 
 INSERT INTO personal_informations (first_name,last_name,DOB,gender,phone_number)
-VALUES ('AAYUSH','SUBEDI',20-MAY-2005,'M',+977-9863531018);
+VALUES ('AAYUSH','SUBEDI','20-MAY-2005','M',+977-9863531018);
 
 
 SELECT * FROM personal_informations;
